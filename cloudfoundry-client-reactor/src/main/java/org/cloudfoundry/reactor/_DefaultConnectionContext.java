@@ -211,12 +211,19 @@ abstract class _DefaultConnectionContext implements ConnectionContext {
 
     @Value.Derived
     Optional<SslCertificateTruster> getSslCertificateTruster() {
-        if (getSkipSslValidation().orElse(false)) {
+
+        if (getSkipSSL().orElse(false)) {
+            logger.info("custom-test:====skipping SSL validation in reactor project");
             return Optional.of(new DefaultSslCertificateTruster(getProxyConfiguration(), getThreadPool()));
         } else {
+            logger.info("custom-test:====NOT SKIPPING SSL validation in reactor project");
             return Optional.empty();
         }
     }
+    Optional<Boolean> getSkipSSL(){
+        return Optional.of(true);
+    }
+
 
     /**
      * The timeout for the SSL close notify flush

@@ -28,7 +28,7 @@
         <version>5.13.0.BUILD-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cloudfoundry-client-reactor</artifactId>
+    <artifactId>custom.cloudfoundry-client-reactor</artifactId>
     <name>Cloud Foundry Java Client - Reactor Implementation</name>
     <packaging>jar</packaging>
 
